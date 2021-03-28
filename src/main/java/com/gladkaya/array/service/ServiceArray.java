@@ -7,6 +7,6 @@ public interface ServiceArray {
     int findMaxElement (EntityArray array);
     int findSumElements (EntityArray array);
     double findAverageValue (EntityArray array);
-    int findCountPositiveNumbers (EntityArray array);
-    int[] changeNegativesNumbersToZero (EntityArray array);
+    int findCountPositiveElements (EntityArray array);
+    EntityArray changeNegativesElementsToZero(EntityArray array);
 }
