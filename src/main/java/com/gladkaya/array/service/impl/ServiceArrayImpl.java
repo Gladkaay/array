@@ -11,12 +11,11 @@ public class ServiceArrayImpl implements ServiceArray {
     private final static Logger logger = LogManager.getLogger(ServiceArrayImpl.class);
     @Override
     public int findMinElement(EntityArray arr) throws ArrayException {
-
-        if (arr==null || arr.getArray().length==0) {
+        int[] array = arr.getArray();
+        if (array==null || array.length==0) {
             logger.log(Level.ERROR, "Empty array");
             throw new ArrayException("Empty array");
         }
-        int[] array = arr.getArray();
 
         int min = array[0];
         for (int num : array) {
@@ -29,8 +28,12 @@ public class ServiceArrayImpl implements ServiceArray {
     }
 
     @Override
-    public int findMaxElement(EntityArray arr) {
+    public int findMaxElement(EntityArray arr) throws ArrayException {
         int[] array = arr.getArray();
+        if (array==null || array.length==0) {
+            logger.log(Level.ERROR, "Empty array");
+            throw new ArrayException("Empty array");
+        }
         int max = array[0];
         for (int num : array) {
             if (num > max) {
@@ -42,8 +45,12 @@ public class ServiceArrayImpl implements ServiceArray {
     }
 
     @Override
-    public int findSumElements(EntityArray arr) {
+    public int findSumElements(EntityArray arr) throws ArrayException {
         int[] array = arr.getArray();
+        if (array==null || array.length==0) {
+            logger.log(Level.ERROR, "Empty array");
+            throw new ArrayException("Empty array");
+        }
         int sum = 0;
         for (int num : array) {
             sum += num;
@@ -53,8 +60,12 @@ public class ServiceArrayImpl implements ServiceArray {
     }
 
     @Override
-    public double findAverageValue(EntityArray arr) {
+    public double findAverageValue(EntityArray arr) throws ArrayException {
         int[] array = arr.getArray();
+        if (array==null || array.length==0) {
+            logger.log(Level.ERROR, "Empty array");
+            throw new ArrayException("Empty array");
+        }
         int sum = 0;
         for (int num : array) {
             sum += num;
@@ -64,8 +75,12 @@ public class ServiceArrayImpl implements ServiceArray {
     }
 
     @Override
-    public int findCountPositiveElements(EntityArray arr) {
+    public int findCountPositiveElements(EntityArray arr) throws ArrayException {
         int[] array = arr.getArray();
+        if (array==null || array.length==0) {
+            logger.log(Level.ERROR, "Empty array");
+            throw new ArrayException("Empty array");
+        }
         int count = 0;
         for (int num : array) {
             if (num > 0) {
@@ -77,8 +92,12 @@ public class ServiceArrayImpl implements ServiceArray {
     }
 
     @Override
-    public EntityArray changeNegativesElementsToZero(EntityArray arr) {
+    public EntityArray changeNegativesElementsToZero(EntityArray arr) throws ArrayException {
         int[] array = arr.getArray();
+        if (array==null || array.length==0) {
+            logger.log(Level.ERROR, "Empty array");
+            throw new ArrayException("Empty array");
+        }
         for (int i = 0; i < array.length; i++) {
             if (array[i] < 0) {
                 array[i] = 0;

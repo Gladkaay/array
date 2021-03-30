@@ -49,33 +49,20 @@ public class ServiceSortArrayImpl implements ServiceSortArray {
         return new EntityArray(array);
     }
 
-    //@Override
-    private int partition(EntityArray arr, int begin, int end) {
+    @Override
+    public EntityArray insertionSort(EntityArray arr) {
         int[] array = arr.getArray();
-        int pivot = end;
-        int counter = begin;
-        for (int i = begin; i < end; i++) {
-            if (array[i] < array[pivot]) {
-                int temp = array[counter];
-                array[counter] = array[i];
-                array[i] = temp;
-                counter++;
+        for (int i = 1; i < array.length; i++) {
+            int current = array[i];
+            int j = i - 1;
+            while(j >= 0 && current < array[j]) {
+                array[j+1] = array[j];
+                j--;
             }
+            array[j+1] = current;
         }
-        int temp = array[pivot];
-        array[pivot] = array[counter];
-        array[counter] = temp;
-
-        return counter;
-    }
-    public EntityArray quickSort(EntityArray arr, int begin, int end) {
-        int[] array = arr.getArray();
-        if (end <= begin) return arr;
-        int pivot = partition(arr, begin, end);
-        quickSort(arr, begin, pivot-1);
-        quickSort(arr, pivot+1, end);
-        logger.log(Level.DEBUG, arr);
-        return arr;
+        logger.log(Level.DEBUG, new EntityArray(array));
+        return new EntityArray(array);
     }
 }
 

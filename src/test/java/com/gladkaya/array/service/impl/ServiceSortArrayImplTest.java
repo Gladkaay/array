@@ -20,9 +20,9 @@ public class ServiceSortArrayImplTest {
         Assert.assertEquals(service.selectionSort(array),new EntityArray(-2, 1, 3, 5));
     }
 
-    /*@Test
-    public void quickSortTest() {
+    @Test
+    public void insertionSortTest() {
         ServiceSortArray service = new ServiceSortArrayImpl();
-        Assert.assertEquals(service.quickSort(arr),new EntityArray(-2, 1, 3, 5));
-    }*/
+        Assert.assertEquals(service.insertionSort(array),new EntityArray(-2, 1, 3, 5));
+    }
 }

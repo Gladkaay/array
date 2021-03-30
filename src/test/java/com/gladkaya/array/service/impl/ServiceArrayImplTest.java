@@ -9,17 +9,11 @@ import org.testng.annotations.Test;
 
 public class ServiceArrayImplTest {
     EntityArray array = new EntityArray(1, 3, -2, 5);
+
     @Test
     void findMinElementTest () throws ArrayException {
-
         ServiceArray service = new ServiceArrayImpl();
         Assert.assertEquals(service.findMinElement(array),-2);
-
-       /* try {
-            Assert.assertEquals(service.findMinElement(array),1);
-        } catch (ArrayException e) {
-           Assert.assertFalse(false);
-        }*/
     }
 
     @Test
@@ -29,25 +23,25 @@ public class ServiceArrayImplTest {
     }
 
     @Test
-    public void findSumElementsTest() {
+    public void findSumElementsTest() throws ArrayException {
         ServiceArray service = new ServiceArrayImpl();
         Assert.assertEquals(service.findSumElements(array),7);
     }
 
     @Test
-    public void findAverageValueTest() {
+    public void findAverageValueTest() throws ArrayException {
         ServiceArray service = new ServiceArrayImpl();
         Assert.assertEquals(service.findAverageValue(array),1.75);
     }
 
     @Test
-    public void findCountPositiveElementsTest() {
+    public void findCountPositiveElementsTest() throws ArrayException {
         ServiceArray service = new ServiceArrayImpl();
         Assert.assertEquals(service.findCountPositiveElements(array),3);
     }
 
     @Test
-    public void changeNegativesElementsToZeroTest() {
+    public void changeNegativesElementsToZeroTest() throws ArrayException {
         ServiceArray service = new ServiceArrayImpl();
         Assert.assertEquals(service.changeNegativesElementsToZero(array),new EntityArray(1, 3, 0, 5));
     }
