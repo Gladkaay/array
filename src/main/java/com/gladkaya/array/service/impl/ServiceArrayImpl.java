@@ -13,7 +13,6 @@ public class ServiceArrayImpl implements ServiceArray {
     public int findMinElement(EntityArray arr) throws ArrayException {
         int[] array = arr.getArray();
         if (array==null || array.length==0) {
-            logger.log(Level.ERROR, "Empty array");
             throw new ArrayException("Empty array");
         }
 
@@ -31,7 +30,6 @@ public class ServiceArrayImpl implements ServiceArray {
     public int findMaxElement(EntityArray arr) throws ArrayException {
         int[] array = arr.getArray();
         if (array==null || array.length==0) {
-            logger.log(Level.ERROR, "Empty array");
             throw new ArrayException("Empty array");
         }
         int max = array[0];
@@ -48,7 +46,6 @@ public class ServiceArrayImpl implements ServiceArray {
     public int findSumElements(EntityArray arr) throws ArrayException {
         int[] array = arr.getArray();
         if (array==null || array.length==0) {
-            logger.log(Level.ERROR, "Empty array");
             throw new ArrayException("Empty array");
         }
         int sum = 0;
@@ -63,7 +60,6 @@ public class ServiceArrayImpl implements ServiceArray {
     public double findAverageValue(EntityArray arr) throws ArrayException {
         int[] array = arr.getArray();
         if (array==null || array.length==0) {
-            logger.log(Level.ERROR, "Empty array");
             throw new ArrayException("Empty array");
         }
         int sum = 0;
@@ -78,7 +74,6 @@ public class ServiceArrayImpl implements ServiceArray {
     public int findCountPositiveElements(EntityArray arr) throws ArrayException {
         int[] array = arr.getArray();
         if (array==null || array.length==0) {
-            logger.log(Level.ERROR, "Empty array");
             throw new ArrayException("Empty array");
         }
         int count = 0;
@@ -95,7 +90,6 @@ public class ServiceArrayImpl implements ServiceArray {
     public EntityArray changeNegativesElementsToZero(EntityArray arr) throws ArrayException {
         int[] array = arr.getArray();
         if (array==null || array.length==0) {
-            logger.log(Level.ERROR, "Empty array");
             throw new ArrayException("Empty array");
         }
         for (int i = 0; i < array.length; i++) {

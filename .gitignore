@@ -1,3 +1,2 @@
-.idea/**
-array.iml
-target/
+/.idea/
+/target/
