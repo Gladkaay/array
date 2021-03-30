@@ -1,12 +1,13 @@
 package com.gladkaya.array.service;
 
 import com.gladkaya.array.entity.EntityArray;
+import com.gladkaya.array.exception.ArrayException;
 
 public interface ServiceArray {
-    int findMinElement (EntityArray array);
-    int findMaxElement (EntityArray array);
-    int findSumElements (EntityArray array);
-    double findAverageValue (EntityArray array);
-    int findCountPositiveElements (EntityArray array);
-    EntityArray changeNegativesElementsToZero(EntityArray array);
+    int findMinElement (EntityArray arr) throws ArrayException;
+    int findMaxElement (EntityArray arr);
+    int findSumElements (EntityArray arr);
+    double findAverageValue (EntityArray arr);
+    int findCountPositiveElements (EntityArray arr);
+    EntityArray changeNegativesElementsToZero(EntityArray arr);
 }

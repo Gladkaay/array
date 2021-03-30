@@ -1,18 +1,30 @@
 package com.gladkaya.array.service.impl;
 
 import com.gladkaya.array.entity.EntityArray;
+import com.gladkaya.array.exception.ArrayException;
 import com.gladkaya.array.service.ServiceArray;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ServiceArrayImpl implements ServiceArray {
+    private final static Logger logger = LogManager.getLogger(ServiceArrayImpl.class);
     @Override
-    public int findMinElement(EntityArray arr) {
+    public int findMinElement(EntityArray arr) throws ArrayException {
+
+        if (arr==null || arr.getArray().length==0) {
+            logger.log(Level.ERROR, "Empty array");
+            throw new ArrayException("Empty array");
+        }
         int[] array = arr.getArray();
+
         int min = array[0];
         for (int num : array) {
             if (num < min) {
                 min = num;
             }
         }
+        logger.log(Level.DEBUG, min);
         return min;
     }
 
@@ -25,6 +37,7 @@ public class ServiceArrayImpl implements ServiceArray {
                 max = num;
             }
         }
+        logger.log(Level.DEBUG, max);
         return max;
     }
 
@@ -35,6 +48,7 @@ public class ServiceArrayImpl implements ServiceArray {
         for (int num : array) {
             sum += num;
         }
+        logger.log(Level.DEBUG, sum);
         return sum;
     }
 
@@ -45,7 +59,8 @@ public class ServiceArrayImpl implements ServiceArray {
         for (int num : array) {
             sum += num;
         }
-        return sum / array.length;
+        logger.log(Level.DEBUG, (double)sum / array.length);
+        return (double)sum / array.length;
     }
 
     @Override
@@ -57,6 +72,7 @@ public class ServiceArrayImpl implements ServiceArray {
                 count++;
             }
         }
+        logger.log(Level.DEBUG, count);
         return count;
     }
 
@@ -68,6 +84,7 @@ public class ServiceArrayImpl implements ServiceArray {
                 array[i] = 0;
             }
         }
+        logger.log(Level.DEBUG, new EntityArray(array));
         return new EntityArray(array);
     }
 }
