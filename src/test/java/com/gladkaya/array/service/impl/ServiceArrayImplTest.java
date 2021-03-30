@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ServiceArrayImplTest {
-    EntityArray array = new EntityArray(1, 3, -2, 5);
+    private final EntityArray array = new EntityArray(1, 3, -2, 5);
 
     @Test
     void findMinElementTest () throws ArrayException {
