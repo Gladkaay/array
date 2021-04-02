@@ -8,7 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ServiceSortArrayImpl implements ServiceSortArray {
-    private final static Logger logger = LogManager.getLogger(ServiceArrayImpl.class);
+    private final static Logger logger = LogManager.getLogger(ServiceSortArrayImpl.class);
     @Override
     public EntityArray bubbleSort(EntityArray arr) {
         int[] array = arr.getArray();
