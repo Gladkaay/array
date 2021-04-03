@@ -1,4 +1,5 @@
-/.idea/
-/target/
+.idea
+target
+array.iml
 
-/src/main/java/com/gladkaya/array/test1/
+
