@@ -1,5 +1,5 @@
-.idea
-target
-array.iml
+.idea/
+target/
+*.iml
 
 

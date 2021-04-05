@@ -1,43 +1,38 @@
 package com.gladkaya.array.reader;
 
-import com.gladkaya.array.entity.EntityArray;
 import com.gladkaya.array.exception.ReaderException;
 import com.gladkaya.array.validator.DataValidator;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DataReader {
-    private final static Logger logger = LogManager.getLogger(DataReader.class);
+    private final static Logger logger = LogManager.getLogger();
 
-    /*public DataReader() throws ReaderException {
-        File file = new File("D:\\epam\\array\\src\\main\\resources\\file\\ArrayDataFile.txt");
-    *//* BufferedReader br = new BufferedReader(new FileReader(file));
-     String st;
-
-   while ((st = br.readLine()) != null)
-
-             System.out.println(st);*//*
-        Scanner scanner = new Scanner (file);
-        while (scanner.hasNextLine()){
-            System.out.println(scanner.nextLine());
-        }
-    }*/
-    public ArrayList<String> readData(String path) throws ReaderException {
-        ArrayList<String> correctLine = new ArrayList<>();
+    public String readData(String path) throws ReaderException {
+        DataValidator dataValidator = new DataValidator();
         try {
             File file = new File(path);
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line = bufferedReader.readLine();
-            correctLine.add(line);
-        } catch (IOException e) {
+            String stringNumbers = null;
+            while (bufferedReader.ready() && stringNumbers == null) {
+                String dataString = bufferedReader.readLine();
+                if (dataValidator.isDataValid(dataString)) {
+                    stringNumbers = dataString;
+                    logger.log(Level.INFO, "String: " + stringNumbers);
+                }
+            }
+            if (stringNumbers == null) {
+                throw new ReaderException("File doesn't contain correct strings");
+            }
+            return stringNumbers;
+        } catch (FileNotFoundException e) {
             throw new ReaderException("File doesn't exist");
+        } catch (IOException e) {
+            throw new ReaderException("Input/Output exception");
         }
-        return correctLine;
-        //      ArrayParser parser = new ArrayParser();
     }
 }
